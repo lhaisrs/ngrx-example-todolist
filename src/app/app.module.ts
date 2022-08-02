@@ -11,6 +11,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './store/reducers/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TaskEffects } from './store/effects/task.effect';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    StoreModule.forRoot(appReducers),
+    EffectsModule.forRoot([TaskEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@
     <!-- List -->
     <div class="task-list-section">
         <!-- Cards -->
-        <div class="uk-card uk-card-body uk-card-default card-task" *ngFor="let task of (tasks | async)">
+        <div class="uk-card uk-card-body uk-card-default card-task" *ngFor="let task of (tasks$ | async)">
             <!-- Card Description -->
             <div class="card-task-description">
                 <input class="uk-checkbox" type="checkbox" [(ngModel)]="task.completed" (change)="updateTask(task)">
