@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,9 @@ import { appReducers } from './store/reducers/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TaskEffects } from './store/effects/task.effect';
 
+import { ToastrModule } from 'ngx-toastr';
+import { ToastEffect } from './store/effects/toast.effect';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,13 +31,15 @@ import { TaskEffects } from './store/effects/task.effect';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     CommonModule,
     FormsModule,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot([TaskEffects]),
+    EffectsModule.forRoot([TaskEffects, ToastEffect]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

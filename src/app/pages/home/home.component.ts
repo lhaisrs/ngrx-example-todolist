@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { SubscriptionService } from 'src/app/services/subscription.service';
 import { CreateTask, DeleteTask, FetchTasksSuccess, GetTasks, UpdateTask } from 'src/app/store/actions/task.action';
+import { toastSuccess } from 'src/app/store/actions/toast.actions';
 import { selectTasksList } from 'src/app/store/selectors/task.selector';
 import { AppState } from 'src/app/store/states/app.state';
 import { Task } from 'src/app/store/states/task.state';
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.fecthTasks();
+    this._store.dispatch(toastSuccess({ title: 'Sucesso', desription: 'Todo List Fetch Sucess '}));
   }
 
   ngOnDestroy(): void {
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   public fecthTasks(): void {
-    this._store.dispatch(new GetTasks()); 
+    this._store.dispatch(new GetTasks());
   }
 
   public async createTask(): Promise<void> {
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this._store.dispatch(new CreateTask({ description: this.description, createdAt: _createdDate }));
     this.subscriptionService.unsubscribeComponent$.next();
     this.description = '';
+    this._store.dispatch(toastSuccess({ title: 'Sucesso', desription: 'Todo List Fetch Sucess '}));
   }
 
   public updateTask(task: Task): void {
@@ -53,6 +56,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this._store.dispatch(new DeleteTask(task));
     this.subscriptionService.unsubscribeComponent$.next();
   }
+
 
 }
 

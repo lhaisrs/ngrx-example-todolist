@@ -15,25 +15,22 @@ export class GetTasks implements Action {
 
 export class FetchTasksSuccess implements Action {
     public readonly type = TaskActionsEnum.FetchTasksSuccess;
-    constructor(public payload: Task[]) {}
+    constructor(public payload: Task[]) { }
 }
 
 export class UpdateTask implements Action {
     public readonly type = TaskActionsEnum.UpdateTask;
-    constructor(public payload: Task | undefined | null) {}
+    constructor(public payload: Task | undefined | null) { }
 }
 
 export class DeleteTask implements Action {
     public readonly type = TaskActionsEnum.DeleteTask;
-    constructor(public payload: Task | undefined | null) {}
+    constructor(public payload: Task | undefined | null) { }
 }
 
 export class CreateTask implements Action {
     public readonly type = TaskActionsEnum.CreateTask;
-    constructor(public payload: { description: string, createdAt: string }) {}
+    constructor(public payload: { description: string, createdAt: string }) { }
 }
 
 export type TaskActions = GetTasks | FetchTasksSuccess | UpdateTask | DeleteTask | CreateTask;
-
-
-// export const updateTask = createAction('[Task] Update Tasks', props<TaskModel>);
