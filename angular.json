@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "6b08e81b-4bbd-44dd-8209-81ed2f075b05"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -102,6 +105,16 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ngrx-example-todolist:build:production",
+            "firebaseProject": "todo-list-a1eec",
+            "firebaseHostingSite": "todo-list-a1eec"
           }
         }
       }

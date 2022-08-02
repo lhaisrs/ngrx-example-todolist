@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "todo-list-a1eec": {
+      "hosting": {
+        "ngrx-example-todolist": [
+          "todo-list-a1eec"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "todo-list-a1eec"
+  }
+}
