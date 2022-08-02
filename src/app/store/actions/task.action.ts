@@ -20,12 +20,12 @@ export class FetchTasksSuccess implements Action {
 
 export class UpdateTask implements Action {
     public readonly type = TaskActionsEnum.UpdateTask;
-    constructor(public payload: Task) {}
+    constructor(public payload: Task | undefined | null) {}
 }
 
 export class DeleteTask implements Action {
     public readonly type = TaskActionsEnum.DeleteTask;
-    constructor(public payload: Task) {}
+    constructor(public payload: Task | undefined | null) {}
 }
 
 export class CreateTask implements Action {

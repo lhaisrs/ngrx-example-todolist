@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
-import { TaskService } from 'src/app/services/task.service';
-import { GetTasks } from 'src/app/store/actions/task.action';
+import { SubscriptionService } from 'src/app/services/subscription.service';
+import { CreateTask, DeleteTask, FetchTasksSuccess, GetTasks, UpdateTask } from 'src/app/store/actions/task.action';
 import { selectTasksList } from 'src/app/store/selectors/task.selector';
 import { AppState } from 'src/app/store/states/app.state';
 import { Task } from 'src/app/store/states/task.state';
@@ -14,46 +14,45 @@ import { Task } from 'src/app/store/states/task.state';
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
-
-  private readonly destroy$: Subject<boolean> = new Subject();
   public description: string = '';
-  public tasks$: Observable<Task[]> = this._store.pipe(select(selectTasksList)); 
+  public tasks$: Observable<Task[]> = this._store.pipe(select(selectTasksList));
 
-  constructor(private readonly _store: Store<AppState>) { }
+  constructor(private readonly _store: Store<AppState>, private readonly subscriptionService: SubscriptionService) { }
 
   ngOnInit(): void {
-    this.readTasks();
-   }
-
-  ngOnDestroy(): void {
-    this.destroy$.next(true);
+    this.fecthTasks();
   }
 
-  public readTasks(): void {
-   //this.tasks = this.service.fetch().valueChanges();
-   this._store.dispatch(new GetTasks());
+  ngOnDestroy(): void {
+    this.subscriptionService.unsubscribeComponent$.next();
+  }
+
+  public fecthTasks(): void {
+    this._store.dispatch(new GetTasks()); 
   }
 
   public async createTask(): Promise<void> {
     const _createdDate: string = new Date().toString();
-    //await this.service.create(this.description, _createdDate);
+    this._store.dispatch(new CreateTask({ description: this.description, createdAt: _createdDate }));
+    this.subscriptionService.unsubscribeComponent$.next();
     this.description = '';
   }
 
   public updateTask(task: Task): void {
     //Update completed field
-    task.completed = true;
-    task.updatedAt = new Date().toString();
-    //this.service.update(task);
+    const updateTask: Task = {
+      ...task,
+      completed: true,
+      updatedAt: new Date().toString(),
+    }
+    this._store.dispatch(new UpdateTask(updateTask));
+    this.subscriptionService.unsubscribeComponent$.next();
   }
 
   public deleteTask(task: Task): void {
-    //this.service.delete(task);
+    this._store.dispatch(new DeleteTask(task));
+    this.subscriptionService.unsubscribeComponent$.next();
   }
-
-  // private transformDate(date?: string): string {
-  //   return moment(date).format('dddd, HH:mm')
-  // }
 
 }
 

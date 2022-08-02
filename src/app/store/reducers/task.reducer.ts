@@ -16,15 +16,12 @@ export const taskReducer = (
             }
         }
         case TaskActionsEnum.UpdateTask: {
-            //TODO: Make the update and communicate to Firebase
             return state
         }
         case TaskActionsEnum.DeleteTask: {
-            //TODO: Make the update and communicate to Firebase
             return state
         }
         case TaskActionsEnum.CreateTask: {
-            //TODO: Make the update and communicate to Firebase
             return state
         }
         default:
