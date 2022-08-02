@@ -28,5 +28,5 @@ Você pode visualizar a aplicação através da [url]('https://todo-list-a1eec.w
 
 Você pode visualizar a apresentação do slide com mais informações sobre NgRx abaixo:
 
-<iframe src='https://1drv.ms/p/s!AmHs8XfqlvjYpjF5hu_hx8EdL6Ew?e=wxuFAa' width='100%' height='600px' frameborder='0'>
+<iframe src="https://onedrive.live.com/embed?cid=D8F896EA77F1EC61&amp;resid=D8F896EA77F1EC61%214913&amp;authkey=ACynqz_wSyritm4&amp;em=2&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">Este é um apresentação do <a target="_blank" href="https://office.com">Microsoft Office</a> incorporado, da plataforma <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
 
