@@ -1,27 +1,32 @@
-# NgrxExampleTodolist
+# Ngrx Example Todo List
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+Um simples projeto usando NgRx, Firebase, UIKit, Toastr para mostrar como podemos usar o NgRx com Angular para Firebase e Side Effects (como o Toastr).
 
-## Development server
+![My Todo List App](./src/assets/readme/images/My%20Todo%20List.png);
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**@angular/core:** 14.1.0
+**@angular/fire:** 7.4.1
+**@ngrx/core:** 1.2.0
+**@ngrx/effects:** 14.0.2
+**firebase:** 9.9.1
+**ngx-toastr:** 15.0.0
+**uikit:** 3.12.2
 
-## Code scaffolding
+## Run App
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Após o clone do repositório, você pode rodar os comandos abaixo para visualizar a aplicação locamente:
 
-## Build
+`npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`ng serve`
 
-## Running unit tests
+## Deploy
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Você pode visualizar a aplicação através da [url]('https://todo-list-a1eec.web.app/home');
 
-## Running end-to-end tests
+## Presentation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Você pode visualizar a apresentação do slide com mais informações sobre NgRx abaixo:
 
-## Further help
+<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://1drv.ms/p/s!AmHs8XfqlvjYpjF5hu_hx8EdL6Ew?e=wxuFAa]' width='100%' height='600px' frameborder='0'>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
